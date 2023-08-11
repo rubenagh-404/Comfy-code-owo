@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<style>
+  body {
+    background-color: rgba(0, 0, 0, 0.61);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    background-color: rgb(255, 255, 255);
+    border: solid black;
+    display: flex;
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+    top: 5vh;
+
+  }
+
+  div {
+    background-color: rgb(255, 255, 255);
+    font-family: monospace;
+    border: solid black;
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    top: 5vh;
+
+  }
+
+
+  .rainbow {
+    text-align: center;
+    text-decoration: solid;
+    font-size: 55px;
+    font-family: monospace;
+    letter-spacing: 5px;
+    animation: colorRotate 6s linear 0s infinite,
+      fontsize 6s linear 0s normal;
+  }
+
+  @keyframes fontsize {
+    from {
+      font-size: 10px;
+    }
+
+    25% {
+      font-size: 25px;
+    }
+
+    50% {
+      font-size: 35px;
+    }
+
+    75% {
+      font-size: 45px;
+    }
+
+    100% {
+      font-size: 55px;
+    }
+  }
+
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+
+    10% {
+      color: #0099ff;
+    }
+
+    50% {
+      color: #00ff00;
+    }
+
+    75% {
+      color: #ff3399;
+    }
+
+    100% {
+      color: #6666ff;
+    }
+  }
+</style>
+
+<head>
+  <title>Hei god dag</title>
+</head>
+
+<body>
+
+  <h1 class="rainbow"> Dette er er en overskrift i forskjellige størrelser og farger </h1>
+
+  <div>test div </div>

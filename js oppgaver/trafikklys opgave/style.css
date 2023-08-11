@@ -1,0 +1,41 @@
+.main_grid {
+    border-color: rgb(0, 0, 0);
+    display: grid;
+    background-color: pink;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3,200px);
+    
+
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+}
+
+.light {
+    background-color: red;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    
+}
+
+.main_grid >div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+#light_1 { 
+    background-color: red;
+}
+#light_2 {
+    background-color: grey;
+ }
+#light_3 {
+    background-color: grey;
+ }
