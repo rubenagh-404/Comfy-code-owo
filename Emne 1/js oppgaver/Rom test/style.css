@@ -1,0 +1,26 @@
+.roomba {
+    border: solid black 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+.bbox {
+    display: flex;
+    border: solid black 2px;
+    width: 300px;
+    height: 100px;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.hidden {
+    display: none;
+}
