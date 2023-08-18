@@ -1,0 +1,13 @@
+Lag en enkel nettside med en kort tekst i en div.
+Lag knapper for å gjøre denne teksten større og mindre,
+altså altså større og mindre font size.
+
+Du kan enten gjøre det via inline style:
+
+document.getElementById('myId').innerHTML = `<div style="font-size: ${myVariable}pt;">`;
+
+eller endre style direkte fra JavaScript:
+document.getElementById('myId').style.fontSize = `${myVariable}pt`;
+
+
+Du kan selvsagt bruke andre enheter om du vil.

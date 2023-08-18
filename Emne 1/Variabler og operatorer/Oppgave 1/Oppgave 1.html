@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <!-- saved from url=(0064)https://getacademy.github.io/EksemplerStartIT/selectSquare3.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #board {
-            display: grid;
-            grid-template-columns: repeat(8, 100px);
-            grid-template-rows: repeat(8, 100px);
-        }
-
-        #board>div {
-            border: 1px solid lightblue;
-        }
-
-        .selected {
-            background-color: yellow;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="board"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="selected"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div id="board"></div>
+
+    <div class="buttonGrid">
+        <button onclick="moveUp()" class="up">↑</button>
+        <button onclick="moveLeft()" class="left">←</button>
+        <button onclick="moveRight()" class="right">→</button>
+        <button onclick="moveDown()" class="down">↓</button>
+    </div>
+
     <script>
         let selectedSquareIndex = 7;
         const size = 64;
@@ -29,23 +26,53 @@
         showBoard();
 
         function showBoard() {
-            // del 1: alle rutene som ikke er valgt før den valgte
-            const lengthPart1 = selectedSquareIndex;
-            const pattern = '<div></div>';
-            const part1 = ''.padEnd(pattern.length * lengthPart1, pattern)
-            document.getElementById('board').innerHTML = part1;
+            refP1();
 
-            // del 2: den valgte ruten
             const part2 = '<div class="selected"></div>';
             document.getElementById('board').innerHTML += part2;
 
-            // del 3  alle rutene som ikke er valgt etter den valgte
-            const lengthPart3 = size - (selectedSquareIndex + 1);
-            const part3 = ''.padEnd(pattern.length * lengthPart3, pattern)
+            refP3();
+
+        }
+
+
+        function refP1() {
+            const lengthPart1 = selectedSquareIndex; // er 7
+            const part1 = ''.padEnd('<div></div>'.length * lengthPart1, '<div></div>');
+            const lengthPart3 = size - (selectedSquareIndex + 1); // er 56
+            document.getElementById('board').innerHTML = part1;
+        }
+
+        function refP3() { 
+            const part3 = ''.padEnd('<div></div>'.length * n, '<div></div>')
             document.getElementById('board').innerHTML += part3;
+        }
+
+
+        function moveUp() {
+            selectedSquareIndex -= 8;
+            showBoard();
+
+
+        }
+        function moveLeft() {
+            selectedSquareIndex --;
+            showBoard();
+
+        }
+        function moveRight() {
+            selectedSquareIndex ++;
+            showBoard();
+
+        }
+        function moveDown() {
+            selectedSquareIndex += 8;
+            showBoard();
+
         }
 
     </script>
 
+</body>
 
-</body></html>
+</html>
