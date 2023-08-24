@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="number" type="number"/>
+    <button onclick="addNumber()">Legg til tall</button>
+    <br/>
+    Antall tall: <span id="numberOut"></span><br/>
+    Sum: <span id="sumOut"></span><br/>
+    
+    <script>
+        let sumOut = 0
+
+
+
+        function addNumber(){
+            // hente ut tall (.value .valueAsNumber)
+            let value = document.getElementById('number').valueAsNumber;
+            // oppdatere sum (variabel?)
+            sumOut += value;
+            document.getElementById('sumOut').innerHTML = sumOut;
+            // oppdatere antall tall (variabel?)
+            // vise frem
+            // blanke input feltet til neste tall
+        }
+    </script>
+</body>
+
+
+<script>
+</script>
+</html>
+
+
