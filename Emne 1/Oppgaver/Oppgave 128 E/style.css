@@ -1,0 +1,40 @@
+body { margin: 1rem; padding: 1rem; background-color: rgb(206, 206, 206); }
+
+.grid {
+    display: grid;
+    grid-template-areas: 
+            "a b"
+            "c d";
+            
+}
+
+#a {
+    border: solid black;
+    padding: 50px;
+    margin: 5px;
+}
+#b {
+    border: solid black;
+    padding: 50px;
+    margin: 5px;
+}
+#c {
+    border: solid black;
+    padding: 50px;
+    margin: 5px;
+}
+#d {
+    border: solid black;
+    padding: 50px;
+    margin: 5px;
+}
+
+#e {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 80px;
+    padding: 5px;
+    margin: 5px;
+}
