@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: repeat(4, 50px);
+            align-items: center;
+        }
+
+        #app > div {
+            background-color: grey;
+            color: black;
+            border: solid black 1px;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //model
+        let numMines = 2;
+        let cells = [
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0
+        ]
+        let mineCheck = [
+            -5, -4, -3, 
+            -1,      1, 
+             3,  4,  5
+        ]
+        let mineCheckRight = [
+            -5, -4, 
+            -1,     
+             3,  4,
+        ]
+        let mineCheckLeft = [
+                -4, -3, 
+                     1, 
+                 4,  5
+        ]
+        let leftCheck = [0,4,8,12]
+        let rightCheck = [3, 7, 11, 15]
+
+        let clickedCells = []
+        let firstRound = true;
+        let done = false;
+
+        //view
+        
+        view();
+        function view() {
+            if (done) return;
+            if (firstRound) {
+                getMines();
+                changeNumber();
+                firstRound = false;
+            }
+            let HTML = '';
+            let x = 0;
+            for (let cell of cells) {
+                HTML += /*HTML*/`
+                    <div onclick="clickCell(${x})" ${clickedCells[x] === undefined ? '' : 'style="background-color: white"'}>${cell}</div>
+                `
+                x++;
+            }
+            console.log(cells);
+            document.getElementById('app').innerHTML = HTML;
+        }
+
+        function countMines(position, grid) {
+            let count = 0;
+            if (leftCheck.includes(position)) checkArray = mineCheckLeft;
+            else if (rightCheck.includes(position)) checkArray = mineCheckRight;
+            else checkArray = mineCheck;
+
+
+            for (let n of checkArray) {
+                if (grid[position + n] === -1) count++;
+            }
+            return count;
+        }
+
+        function changeNumber() {
+            for (i=0; i<cells.length; i++) {
+                if (cells[i] === -1) continue;
+                cells[i] = countMines(i, cells);
+            }
+        }
+
+        function getMines() {
+            let mines = []
+            let rng = '';
+            let lastRNG;
+            for (i=0; i<numMines; i++) {
+                lastRNG = rng
+                rng = Math.floor(Math.random() * cells.length);
+                if (lastRNG === rng) i--;
+                else mines.push(rng);
+            }
+            for (let mine of mines) {
+                cells[mine] = -1;
+            }
+        }
+
+        //controller
+        function clickCell(position) {
+            clickedCells[position] = true;
+            view();
+            checkMine(position);
+        }
+        
+        function checkMine(position) {
+            if (cells[position] === -1) {
+                isDone = true;
+                if (confirm('Du tapte! Vil du prøve på nytt?')) {
+                }
+                view();
+            }
+        }
+    </script>
+</body>
+</html>

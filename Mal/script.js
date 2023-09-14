@@ -4,9 +4,9 @@
 // view
 updateView()
 function updateView() {
-    document.getElementById('app').innerHTML = /*HTML*/`
-
-    `;
+    let html = '';
+    html += 'Hello World!';
+    document.getElementById('app').innerHTML = html;
 }
 
 
